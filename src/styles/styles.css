@@ -195,19 +195,23 @@ h4 {
   font-weight: 500;
 }
 
-h1 {
+h1,
+.h1 {
   font-size: clamp(43px, 4.1666666667vw, 60px);
 }
 
-h2 {
+h2,
+.h2 {
   font-size: clamp(36px, 2.7777777778vw, 40px);
 }
 
-h3 {
+h3,
+.h3 {
   font-size: clamp(26px, 2.0833333333vw, 30px);
 }
 
-h4 {
+h4,
+.h4 {
   font-size: clamp(18px, 1.3888888889vw, 20px);
 }
 
@@ -257,6 +261,16 @@ h4 {
 }
 @media (max-width: 1023px) {
   .grid--2 {
+    --gridColumns: 1;
+  }
+}
+@media (max-width: 1280px) {
+  .grid--3 {
+    --gridColumns: 2;
+  }
+}
+@media (max-width: 767px) {
+  .grid--3 {
     --gridColumns: 1;
   }
 }
@@ -823,7 +837,7 @@ h4 {
   .studies__list {
     scroll-snap-type: x mandatory;
     overflow-x: scroll;
-    width: 100vw;
+    width: 100%;
     -moz-column-gap: 20px;
          column-gap: 20px;
   }
@@ -999,4 +1013,71 @@ h4 {
   margin-top: 30px;
   padding-top: 30px;
   border-top: var(--border);
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+.team__button {
+  align-self: self-end;
+  min-width: 269px;
+}
+@media (max-width: 480px) {
+  .team__button {
+    width: 100%;
+  }
+}
+
+.team-card {
+  padding: 40px 35px;
+  height: 255px;
+  border: var(--border);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 767px) {
+  .team-card {
+    padding-inline: 50px;
+  }
+}
+.team-card__header {
+  display: flex;
+}
+.team-card__image:not(:last-child) {
+  margin-right: 20px;
+}
+.team-card__info {
+  align-self: flex-end;
+}
+.team-card__info:not(:last-child) {
+  margin-right: 10px;
+}
+.team-card__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  aspect-ratio: 1;
+  color: var(--color-accent);
+  background-color: var(--color-dark);
+  flex-shrink: 0;
+  border-radius: 50%;
+  align-self: start;
+  margin-left: auto;
+}
+.team-card__name:not(:last-child) {
+  margin-bottom: 3px;
+}
+.team-card__body {
+  --teamBodyMarginTop: 28px;
+  margin-top: var(--teamBodyMarginTop);
+  padding-top: var(--teamBodyMarginTop);
+  border-top: var(--border);
+}
+@media (max-width: 767px) {
+  .team-card__body {
+    --teamBodyMarginTop: 20px;
+  }
 }/*# sourceMappingURL=styles.css.map */
