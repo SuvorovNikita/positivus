@@ -1,9 +1,25 @@
 .field {
+  --fieldInputHeight: var(--input-height);
+  --fieldInputText: var(--color-dark);
+  --fieldInputBg: var(--color-light);
+  --fieldInputBorderColor: var(--color-dark);
+  --fieldInputPlaceHplderColor: var(--color-dark-alt);
+
   display: flex;
   flex-direction: column;
   align-items: start;
   row-gap: 5px;
   max-width: 495px;
+
+  @include mobile {
+    row-gap: 10px;
+  }
+
+  &--big-height {
+  }
+
+  &--darg-bg {
+  }
 
   &__label {
     @include fluid-text(16, 14);
@@ -11,13 +27,19 @@
 
   &__input {
     width: 100%;
-    height: var(--input-height);
+    height: var(--fieldInputHeight);
     padding-inline: 30px;
-    border: var(--border);
+    border: 1px solid var(--fieldInputBorderColor);
+    color: var(--fieldInputText);
+    background-color: var(--fieldInputBg);
     border-radius: var(--border-radius);
 
     @include hover {
       background-color: var(--color-accent);
+    }
+
+    @include mobile {
+      padding-inline: 20px;
     }
 
     &:focus {
@@ -26,13 +48,17 @@
     }
 
     &::placeholder {
-      color: var(--color-grey-alt);
+      color: var(--fieldInputPlaceHplderColor);
     }
 
     &--textarea {
       height: 190px;
       padding-block: 18px;
       resize: none;
+
+      @include mobile {
+        height: 132px;
+      }
     }
   }
 }
