@@ -1,24 +1,31 @@
 .field {
   --fieldInputHeight: var(--input-height);
-  --fieldInputText: var(--color-dark);
-  --fieldInputBg: var(--color-light);
+  --fieldInputTextColor: var(--color-dark);
+  --fieldInputBgColor: var(--color-light);
   --fieldInputBorderColor: var(--color-dark);
-  --fieldInputPlaceHplderColor: var(--color-dark-alt);
+  --fieldInputPlaceholderColor: var(--color-dark-alt);
+  --fieldInputHoverBgColor: var(--color-accent);
 
   display: flex;
   flex-direction: column;
   align-items: start;
   row-gap: 5px;
-  max-width: 495px;
 
   @include mobile {
     row-gap: 10px;
   }
 
   &--big-height {
+    --fieldInputHeight: var(--button-height);
+    flex-direction: row;
   }
 
-  &--darg-bg {
+  &--dark-bg {
+    --fieldInputTextColor: var(--color-accent);
+    --fieldInputBgColor: var(--color-dark-alt);
+    --fieldInputBorderColor: var(--color-light);
+    --fieldInputPlaceholderColor: var(--color-light);
+    --fieldInputHoverBgColor: var(--color-dark);
   }
 
   &__label {
@@ -26,16 +33,16 @@
   }
 
   &__input {
-    width: 100%;
+    width: 89%;
     height: var(--fieldInputHeight);
     padding-inline: 30px;
+    color: var(--fieldInputTextColor);
+    background-color: var(--fieldInputBgColor);
     border: 1px solid var(--fieldInputBorderColor);
-    color: var(--fieldInputText);
-    background-color: var(--fieldInputBg);
     border-radius: var(--border-radius);
 
     @include hover {
-      background-color: var(--color-accent);
+      background-color: var(--fieldInputHoverBgColor);
     }
 
     @include mobile {
@@ -48,7 +55,7 @@
     }
 
     &::placeholder {
-      color: var(--fieldInputPlaceHplderColor);
+      color: var(--fieldInputPlaceholderColor);
     }
 
     &--textarea {

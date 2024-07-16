@@ -4,19 +4,19 @@
 
   @include mobile-above {
     padding: 60px 100px 80px;
-    background-color: var(--color-grey);
+    background-color: var(--color-gray);
     border-radius: var(--border-radius-large);
   }
 
-  &:after {
-    --contactUsImageY: 62px;
+  &::after {
+    --contactUsImageOffsetY: 62px;
 
     content: "";
     position: absolute;
     top: 50%;
     left: 100%;
     translate: -50% -50%;
-    height: calc(100% - var(--contactUsImageY) * 2);
+    height: calc(100% - var(--contactUsImageOffsetY) * 2);
     aspect-ratio: 1;
     background: url("../../../src/images/contact-us.svg") center/contain
       no-repeat;
@@ -35,13 +35,13 @@
   &__request-types,
   &__body {
     @include mobile {
-      background-color: var(--color-grey);
+      background-color: var(--color-gray);
     }
   }
 
   &__request-types {
     @include mobile {
-      padding: 42px 52px 36px;
+      padding: 40px 52px 36px;
       border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
     }
   }
